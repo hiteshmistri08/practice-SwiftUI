@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67793E822CA91A9300081C1D /* CaptionedPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67793E812CA91A9300081C1D /* CaptionedPhoto.swift */; };
 		67E388CE2CA911FE00202250 /* Practice_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E388CD2CA911FE00202250 /* Practice_SwiftUIApp.swift */; };
 		67E388D02CA911FE00202250 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E388CF2CA911FE00202250 /* ContentView.swift */; };
 		67E388D22CA9120300202250 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67E388D12CA9120300202250 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		67793E812CA91A9300081C1D /* CaptionedPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionedPhoto.swift; sourceTree = "<group>"; };
 		67E388CA2CA911FE00202250 /* Practice-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Practice-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67E388CD2CA911FE00202250 /* Practice_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practice_SwiftUIApp.swift; sourceTree = "<group>"; };
 		67E388CF2CA911FE00202250 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +34,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67793E802CA91A5400081C1D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				67793E812CA91A9300081C1D /* CaptionedPhoto.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		67E388C12CA911FE00202250 = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +63,7 @@
 			children = (
 				67E388CD2CA911FE00202250 /* Practice_SwiftUIApp.swift */,
 				67E388CF2CA911FE00202250 /* ContentView.swift */,
+				67793E802CA91A5400081C1D /* Views */,
 				67E388D12CA9120300202250 /* Assets.xcassets */,
 				67E388D32CA9120300202250 /* Preview Content */,
 			);
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67E388D02CA911FE00202250 /* ContentView.swift in Sources */,
+				67793E822CA91A9300081C1D /* CaptionedPhoto.swift in Sources */,
 				67E388CE2CA911FE00202250 /* Practice_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
