@@ -1,5 +1,5 @@
 //
-//  CreateLoginView.swift
+//  LoginView.swift
 //  Practice-SwiftUI
 //
 //  Created by Hitesh on 13/10/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CreateLoginView: View {
+struct LoginView: View {
 
     @State private var userName: String = ""
     @State private var password: String = ""
@@ -77,8 +77,8 @@ struct CreateLoginView: View {
 }
 
 
-struct CreateLoginView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateLoginView()
+        LoginView()
     }
 }
