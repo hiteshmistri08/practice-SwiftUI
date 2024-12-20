@@ -71,7 +71,9 @@ struct LoginView: View {
                         } label: {
                             Text("Forget Password?")
                         }
-                        .sheet(isPresented: $presentForgetPassword) {
+                        .sheet(isPresented: $presentForgetPassword, onDismiss: {
+                            presentForgetPassword = false
+                        }) {
                             NavigationView {
                                 ForgetPasswordView()
                                     .navigationTitle("Forget Password")
