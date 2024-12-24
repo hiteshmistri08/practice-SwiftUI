@@ -8,42 +8,62 @@
 import SwiftUI
 
 struct MusicView: View {
-    @StateObject var viewModel = MusicViewModel()
-    
+    var viewModel = MusicViewModel()
+    @State private var users:[MusicUserResponse.User] = []
+    @State private var isLoading = false
+
     var body: some View {
-        List(viewModel.users) { user in
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("User Name:- ")
-                        .font(.title2)
-                        .foregroundColor(.gray.opacity(0.8))
-                    Text(user.firstName)
-                        .font(.title2)
+        List {
+            ForEach(users, id: \.id) { user in
+                VStack(alignment: .leading) {
+                    HStack(alignment: .top) {
+                        Text("User Name:- ")
+                            .font(.title2)
+                            .foregroundColor(.gray.opacity(0.8))
+                        Text(user.firstName)
+                            .font(.title2)
+                    }
+                    
+                    HStack(alignment: .top) {
+                        Text("User Email:- ")
+                            .font(.title2)
+                            .foregroundColor(.gray.opacity(0.8))
+                        Text(user.email)
+                            .font(.title2)
+                    }
                 }
-                
-                HStack {
-                    Text("User Email:- ")
-                        .font(.title2)
-                        .foregroundColor(.gray.opacity(0.8))
-                    Text(user.email)
-                        .font(.title2)
+                .onAppear {
+                    if user.id == users.last?.id, viewModel.totalPage != viewModel.nextPageOffset, isLoading == false {
+                        viewModel.fetchList()
+                        isLoading = true
+                    }
                 }
+            }
+            
+            if isLoading {
+                ProgressView()
+                    .padding()
             }
         }
         .navigationTitle("Music Author")
         .onAppear {
-            Task {
-                do {
-                    let response = try await viewModel.fetchList()
+            viewModel.completionUserListAPIState = { result in
+                switch result {
+                case .success(let response):
                     DispatchQueue.main.async { [response] in
-                        self.viewModel.nextPageOffset = response?.page ?? 0
-                        self.viewModel.totalPage = response?.totalPages ?? 0
-                        self.viewModel.users += (response?.data ?? [])
+                        self.users = self.users + (response.data ?? [])
+                        self.isLoading = true
                     }
-                } catch {
+                   break
+                case .failure(let error):
                     debugPrint("error:-", error.localizedDescription)
+                    DispatchQueue.main.async {
+                        self.isLoading = false
+                    }
+                    break
                 }
             }
+            viewModel.fetchList()
         }
     }
 }
