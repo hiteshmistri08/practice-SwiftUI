@@ -27,6 +27,7 @@
 		67793E812CA91A9300081C1D /* CaptionedPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionedPhoto.swift; sourceTree = "<group>"; };
 		677B0F152D1A9B1D00705719 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
 		677B0F182D1A9DBD00705719 /* MusicUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicUserResponse.swift; sourceTree = "<group>"; };
+		677B0F1A2D1AC0AD00705719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		677FBFF12D171DB7005075F2 /* MusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicView.swift; sourceTree = "<group>"; };
 		67D6D8D72CBBB19400768197 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		67D80D192CD3DFC0005FCB95 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		67E388CC2CA911FE00202250 /* Practice-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				677B0F1A2D1AC0AD00705719 /* Info.plist */,
 				67E388CD2CA911FE00202250 /* Practice_SwiftUIApp.swift */,
 				67E388CF2CA911FE00202250 /* ContentView.swift */,
 				677B0F172D1A9D2500705719 /* Model */,
@@ -349,6 +351,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Practice-SwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Practice-SwiftUI/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -377,6 +380,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Practice-SwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Practice-SwiftUI/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -8,23 +8,24 @@
 import Foundation
 
 let baseURL = "https://reqres.in/api/"
-let userURL = baseURL + "users"
+let userURL = baseURL + "users?"
 
 final class MusicViewModel: ObservableObject {
-    private var totalPage: Int = 0
-    private var nextPageOffset: Int = 0
+    var totalPage: Int = 0
+    var nextPageOffset: Int = 0
     @Published var users:[MusicUserResponse.User] = []
     
-    func fetchList() async {
+    func fetchList() async throws -> MusicUserResponse? {
         do {
             let url = URL(string: userURL + "page=\(nextPageOffset)")!
-            let (data, _) = try await URLSession.shared.data(from: url)
+            let (data, response) = try await URLSession.shared.data(from: url)
+            debugPrint("response-", response)
+            debugPrint("data-", data)
             let userResponse = try JSONDecoder().decode(MusicUserResponse.self, from: data)
-            self.users = userResponse.data ?? []
-            self.nextPageOffset = userResponse.page
-            self.totalPage = userResponse.totalPages
+            return userResponse
         } catch {
             debugPrint("error:=", error.localizedDescription)
+            return nil
         }
     }
 }
