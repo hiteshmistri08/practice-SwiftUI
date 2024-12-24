@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		67793E822CA91A9300081C1D /* CaptionedPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67793E812CA91A9300081C1D /* CaptionedPhoto.swift */; };
+		677B0F162D1A9B1D00705719 /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B0F152D1A9B1D00705719 /* MusicViewModel.swift */; };
+		677B0F192D1A9DBD00705719 /* MusicUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B0F182D1A9DBD00705719 /* MusicUserResponse.swift */; };
+		677FBFF22D171DB7005075F2 /* MusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677FBFF12D171DB7005075F2 /* MusicView.swift */; };
 		67D6D8D82CBBB19400768197 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D6D8D72CBBB19400768197 /* LoginView.swift */; };
 		67D80D1A2CD3DFC0005FCB95 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D80D192CD3DFC0005FCB95 /* String+Extension.swift */; };
 		67D80D1D2CD3E03F005FCB95 /* RoundedRectangleOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D80D1C2CD3E03F005FCB95 /* RoundedRectangleOverlay.swift */; };
@@ -22,6 +25,9 @@
 
 /* Begin PBXFileReference section */
 		67793E812CA91A9300081C1D /* CaptionedPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionedPhoto.swift; sourceTree = "<group>"; };
+		677B0F152D1A9B1D00705719 /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
+		677B0F182D1A9DBD00705719 /* MusicUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicUserResponse.swift; sourceTree = "<group>"; };
+		677FBFF12D171DB7005075F2 /* MusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicView.swift; sourceTree = "<group>"; };
 		67D6D8D72CBBB19400768197 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		67D80D192CD3DFC0005FCB95 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		67D80D1C2CD3E03F005FCB95 /* RoundedRectangleOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectangleOverlay.swift; sourceTree = "<group>"; };
@@ -54,8 +60,25 @@
 				67F23F492CBB8DD40016A4CA /* IfElseTrain.swift */,
 				67D6D8D72CBBB19400768197 /* LoginView.swift */,
 				67D80D202CD3E573005FCB95 /* ForgetPasswordView.swift */,
+				677FBFF12D171DB7005075F2 /* MusicView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		677B0F142D1A9AD900705719 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				677B0F152D1A9B1D00705719 /* MusicViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		677B0F172D1A9D2500705719 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				677B0F182D1A9DBD00705719 /* MusicUserResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		67D80D182CD3DF95005FCB95 /* Foundation+Extenstion */ = {
@@ -96,6 +119,8 @@
 			children = (
 				67E388CD2CA911FE00202250 /* Practice_SwiftUIApp.swift */,
 				67E388CF2CA911FE00202250 /* ContentView.swift */,
+				677B0F172D1A9D2500705719 /* Model */,
+				677B0F142D1A9AD900705719 /* ViewModel */,
 				67D80D182CD3DF95005FCB95 /* Foundation+Extenstion */,
 				67793E802CA91A5400081C1D /* Views */,
 				67E388D12CA9120300202250 /* Assets.xcassets */,
@@ -183,13 +208,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				67D6D8D82CBBB19400768197 /* LoginView.swift in Sources */,
+				677B0F192D1A9DBD00705719 /* MusicUserResponse.swift in Sources */,
 				67E388D02CA911FE00202250 /* ContentView.swift in Sources */,
+				677FBFF22D171DB7005075F2 /* MusicView.swift in Sources */,
 				67D80D1F2CD3E080005FCB95 /* ArrowRightCircleBurron.swift in Sources */,
 				67793E822CA91A9300081C1D /* CaptionedPhoto.swift in Sources */,
 				67F23F4A2CBB8DD50016A4CA /* IfElseTrain.swift in Sources */,
 				67D80D212CD3E573005FCB95 /* ForgetPasswordView.swift in Sources */,
 				67D80D1A2CD3DFC0005FCB95 /* String+Extension.swift in Sources */,
 				67D80D1D2CD3E03F005FCB95 /* RoundedRectangleOverlay.swift in Sources */,
+				677B0F162D1A9B1D00705719 /* MusicViewModel.swift in Sources */,
 				67E388CE2CA911FE00202250 /* Practice_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
