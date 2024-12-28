@@ -9,12 +9,12 @@ import SwiftUI
 
 struct MusicView: View {
     @StateObject var viewModel = MusicViewModel()
-    
+
     var body: some View {
         VStack {
             List {
                 // List of users
-                ForEach(viewModel.users, id: \.id) { user in
+                ForEach(viewModel.filteredUsers, id: \.id) { user in
                     VStack(alignment: .leading) {
                         HStack(alignment: .top) {
                             Text("User Name:- ")
@@ -34,7 +34,7 @@ struct MusicView: View {
                     }
                     .onAppear {
                         // Trigger pagination when the last user appears
-                        if user.id == viewModel.users.last?.id {
+                        if user.id == viewModel.filteredUsers.last?.id, viewModel.searchText.isEmpty {
                             // Only trigger pagination if we haven't already loaded the next page and we're not already loading
                             if !viewModel.isLoading && viewModel.nextPageOffset <= viewModel.totalPage {
                                 viewModel.fetchList()
@@ -49,7 +49,9 @@ struct MusicView: View {
                         .padding()
                 }
             }
+            .listStyle(.plain)
             .navigationTitle("Music Author")
+            .searchable(text: $viewModel.searchText)
             .onAppear {
                 // Initial API call to load the first page
                 viewModel.fetchList()

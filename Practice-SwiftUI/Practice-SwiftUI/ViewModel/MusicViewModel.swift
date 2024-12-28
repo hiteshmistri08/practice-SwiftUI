@@ -15,9 +15,15 @@ final class MusicViewModel: ObservableObject {
     private(set) var totalPage: Int = 1
     private(set) var nextPageOffset: Int = 1
     
-    @Published var users:[MusicUserResponse.User] = []
-    @Published var isLoading = false
+    private var users:[MusicUserResponse.User] = []
+    var filteredUsers:[MusicUserResponse.User] {
+        guard !searchText.trimmingCharacters(in: .whitespaces).isEmpty else { return users }
+        return users.filter{ $0.firstName.contains(searchText) || $0.email.contains(searchText) }
+    }
     
+    @Published var isLoading = false
+    @Published var searchText: String = ""
+
     private var cancellables = Set<AnyCancellable>()
     
     func fetchList() {
@@ -45,6 +51,7 @@ final class MusicViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] response in
                 self?.users.append(contentsOf: response.data ?? [])
+                self?.searchText = self?.searchText ?? ""
                 self?.nextPageOffset += 1
                 self?.totalPage = response.totalPages
             }
