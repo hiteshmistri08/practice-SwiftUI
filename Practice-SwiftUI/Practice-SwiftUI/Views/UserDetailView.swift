@@ -42,10 +42,9 @@ struct UserDetailView: View {
         }
     }
 }
-/*
+
 struct UserDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        UserDetailView()
+        UserDetailView(user: UserResponse.User(id: 1, email: "jonny@test.com", firstName: "Jonny", lastName: "Gadar", avatar: ""))
     }
 }
-*/
