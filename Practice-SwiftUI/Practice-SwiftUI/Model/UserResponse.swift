@@ -26,7 +26,11 @@ struct UserResponse: Decodable {
         let id: Int
         let email, firstName, lastName: String
         let avatar: String
-
+        
+        var fullName: String {
+            firstName + " " + lastName
+        }
+        
         private enum CodingKeys: String, CodingKey {
             case id, email
             case firstName = "first_name"
