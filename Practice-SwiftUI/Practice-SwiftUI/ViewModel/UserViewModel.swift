@@ -1,5 +1,5 @@
 //
-//  MusicViewModel.swift
+//  UserViewModel.swift
 //  Practice-SwiftUI
 //
 //  Created by Hitesh on 24/12/24.
@@ -11,12 +11,12 @@ import Combine
 let baseURL = "https://reqres.in/api/"
 let userURL = baseURL + "users?"
 
-final class MusicViewModel: ObservableObject {
+final class UserViewModel: ObservableObject {
     private(set) var totalPage: Int = 1
     private(set) var nextPageOffset: Int = 1
     
-    private var users:[MusicUserResponse.User] = []
-    var filteredUsers:[MusicUserResponse.User] {
+    private var users:[UserResponse.User] = []
+    var filteredUsers:[UserResponse.User] {
         guard !searchText.trimmingCharacters(in: .whitespaces).isEmpty else { return users }
         return users.filter{ $0.firstName.contains(searchText) || $0.email.contains(searchText) }
     }
@@ -37,7 +37,7 @@ final class MusicViewModel: ObservableObject {
         debugPrint("url-", url.absoluteString)
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
-            .decode(type: MusicUserResponse.self, decoder: JSONDecoder())
+            .decode(type: UserResponse.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink { [weak self] result in
                 self?.isLoading = false

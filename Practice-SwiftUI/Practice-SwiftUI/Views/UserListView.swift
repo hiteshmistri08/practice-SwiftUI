@@ -1,5 +1,5 @@
 //
-//  MusicView.swift
+//  UserListView.swift
 //  Practice-SwiftUI
 //
 //  Created by Hitesh on 21/12/24.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct MusicView: View {
-    @StateObject var viewModel = MusicViewModel()
+struct UserListView: View {
+    @StateObject var viewModel = UserViewModel()
 
     var body: some View {
         VStack {
@@ -62,8 +62,8 @@ struct MusicView: View {
     }
 }
 
-struct MusicView_Previews: PreviewProvider {
+struct UserListView_Previews: PreviewProvider {
     static var previews: some View {
-        MusicView()
+        UserListView()
     }
 }

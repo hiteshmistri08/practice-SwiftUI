@@ -1,5 +1,5 @@
 //
-//  MusicUserResponse.swift
+//  UserResponse.swift
 //  Practice-SwiftUI
 //
 //  Created by Hitesh on 24/12/24.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-// MARK: - MusicUserResponse
-struct MusicUserResponse: Decodable {
+// MARK: - UserResponse
+struct UserResponse: Decodable {
     let page, perPage, total, totalPages: Int
     let data: [User]?
     let support: Support?

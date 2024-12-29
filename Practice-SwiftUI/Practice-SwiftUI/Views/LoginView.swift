@@ -58,7 +58,7 @@ struct LoginView: View {
                                 .onChange(of: password) { newValue in
                                     isDisablePasswordButton = !newValue.isValidPasswrod
                                 }
-                            NavigationLink(destination: MusicView(), isActive: $isLinkActive) {
+                            NavigationLink(destination: UserListView(), isActive: $isLinkActive) {
                                 ArrowRightCircleBurron(isDisable: isDisablePasswordButton) {
                                     isLinkActive = true
                                     debugPrint("Login Successfully")
