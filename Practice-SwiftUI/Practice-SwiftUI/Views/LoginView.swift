@@ -35,7 +35,7 @@ struct LoginView: View {
                             .textFieldStyle(.plain)
                             .keyboardType(.emailAddress)
                             .onChange(of: userName) { newValue in
-                                isDisableEmailButton = !newValue.isValidEmail
+                                isDisableEmailButton = !newValue.trimmingCharacters(in: .whitespaces).isValidEmail
                                 if newValue.isValidEmail == false {
                                     canShowPasswordField = false
                                     isHiddenEmailButton = false
