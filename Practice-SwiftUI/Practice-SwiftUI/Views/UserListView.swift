@@ -15,31 +15,33 @@ struct UserListView: View {
             List {
                 // List of users
                 ForEach(viewModel.filteredUsers, id: \.id) { user in
-                    LazyHStack(alignment: .center) {
-                        AsyncCachedImage(url: URL(string: user.avatar)) { image in
-                            image
-                                .resizable()
-
-                        } placeholder: {
-                            ProgressView() // Shows loading indicator until the image is downloaded
+                    NavigationLink(destination: UserDetailView(user: user)) {
+                        LazyHStack(alignment: .center) {
+                            AsyncCachedImage(url: URL(string: user.avatar)) { image in
+                                image
+                                    .resizable()
+                                
+                            } placeholder: {
+                                ProgressView() // Shows loading indicator until the image is downloaded
+                            }
+                            .frame(width: 80, height: 80)
+                            .cornerRadius(10)
+                            
+                            VStack(alignment: .leading) {
+                                Text(user.firstName)
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                Text(user.email)
+                                    .font(.body)
+                            }
                         }
-                        .frame(width: 80, height: 80)
-                        .cornerRadius(10)
-
-                        VStack(alignment: .leading) {
-                            Text(user.firstName)
-                                .font(.title2)
-                                .fontWeight(.bold)
-                            Text(user.email)
-                                .font(.body)
-                        }
-                    }
-                    .onAppear {
-                        // Trigger pagination when the last user appears
-                        if user.id == viewModel.filteredUsers.last?.id, viewModel.searchText.isEmpty {
-                            // Only trigger pagination if we haven't already loaded the next page and we're not already loading
-                            if !viewModel.isLoading && viewModel.nextPageOffset <= viewModel.totalPage {
-                                viewModel.fetchList()
+                        .onAppear {
+                            // Trigger pagination when the last user appears
+                            if user.id == viewModel.filteredUsers.last?.id, viewModel.searchText.isEmpty {
+                                // Only trigger pagination if we haven't already loaded the next page and we're not already loading
+                                if !viewModel.isLoading && viewModel.nextPageOffset <= viewModel.totalPage {
+                                    viewModel.fetchList()
+                                }
                             }
                         }
                     }
@@ -52,7 +54,7 @@ struct UserListView: View {
                 }
             }
             .listStyle(.plain)
-            .navigationTitle("Music Author")
+            .navigationTitle("User")
             .searchable(text: $viewModel.searchText)
             .onAppear {
                 // Initial API call to load the first page
