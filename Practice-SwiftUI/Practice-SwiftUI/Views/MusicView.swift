@@ -15,21 +15,23 @@ struct MusicView: View {
             List {
                 // List of users
                 ForEach(viewModel.filteredUsers, id: \.id) { user in
-                    VStack(alignment: .leading) {
-                        HStack(alignment: .top) {
-                            Text("User Name:- ")
-                                .font(.title2)
-                                .foregroundColor(.gray.opacity(0.8))
+                    LazyHStack(alignment: .center) {
+                        AsyncCachedImage(url: URL(string: user.avatar)) { image in
+                            image
+                                .resizable()
+
+                        } placeholder: {
+                            ProgressView() // Shows loading indicator until the image is downloaded
+                        }
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(10)
+
+                        VStack(alignment: .leading) {
                             Text(user.firstName)
                                 .font(.title2)
-                        }
-                        
-                        HStack(alignment: .top) {
-                            Text("User Email:- ")
-                                .font(.title2)
-                                .foregroundColor(.gray.opacity(0.8))
+                                .fontWeight(.bold)
                             Text(user.email)
-                                .font(.title2)
+                                .font(.body)
                         }
                     }
                     .onAppear {
